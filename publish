@@ -1,0 +1,8 @@
+#!/bin/bash
+for base_image in alpine slim-stretch; do
+    for python_version in 3.5 3.6 3.7; do
+        for browser in chromium firefox; do
+            docker push zmwangx/docker-selenium-python:python-$python_version-$browser-$base_image
+        done
+    done
+done
