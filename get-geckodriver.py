@@ -7,9 +7,6 @@ import urllib.request
 
 req = urllib.request.Request("https://api.github.com/repos/mozilla/geckodriver/releases/latest")
 req.add_header("Accept", "application/vnd.github.v3+json")
-token = os.getenv("GITHUB_API_TOKEN")
-if token:
-    req.add_header("Authorization", "token %s" % token)
 with urllib.request.urlopen(req) as r:
     status = r.getcode()
     assert status == 200, "api.github.com: HTTP %d" % status
